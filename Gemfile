@@ -10,6 +10,7 @@ gem 'bootstrap', '~> 4.0.0'
 gem 'haml-rails'
 gem 'mini_racer'
 gem 'geocoder'
+gem 'whenever', require: false
 group :development, :test do
   gem 'pry-rails'
   gem 'pry-rescue'

@@ -5,3 +5,4 @@
     %h5= mini_url(checksum: visited_url.checksum)
     %p Total Clicks : #{visited_url.visits_count}
     %p ip : #{visited_url.visits.map(&:ip).join(', ')}
+    %hr

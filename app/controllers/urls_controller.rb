@@ -13,13 +13,13 @@ class UrlsController < ApplicationController
   end
 
   def show
-    @url = Url.find_by_checksum(params[:checksum]) 
-    visit = @url.visits.build(ip: request.remote_ip, country: request.location.try(:country))
-    visit.save
-    if @url.nil?
+    url = Url.find_by(checksum: params[:checksum], expired: false) 
+    if url.nil?
       render 'public/404'
     else
-      redirect_to @url.original
+      visit = url.visits.build(ip: request.remote_ip, country: request.location.try(:country))
+      visit.save
+      redirect_to url.original
     end
   end
 
