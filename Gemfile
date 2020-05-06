@@ -9,6 +9,7 @@ gem 'activerecord', '4.1.2'
 gem 'bootstrap', '~> 4.0.0'
 gem 'haml-rails'
 gem 'mini_racer'
+gem 'geocoder'
 group :development, :test do
   gem 'pry-rails'
   gem 'pry-rescue'

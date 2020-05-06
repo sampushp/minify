@@ -5,6 +5,8 @@ class Url < ActiveRecord::Base
   before_create :generate_minified
   after_commit :set_expire_at
 
+  has_many :visits
+
   private
   def sanitize_original
     return false if self.original.blank?
