@@ -7,7 +7,7 @@ To Setup
 1. Clone the directory.
 2. Bundle install
 3. Execute rake db:migrate
-4. Start the server.
-
+4. whenever --update-crontab
+5. Start the server.
 
 URL will expire by EOD of the day after 1 month.
