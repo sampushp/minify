@@ -3,6 +3,7 @@ class Url < ActiveRecord::Base
 
   before_create :sanitize_original
   before_create :generate_minified
+  after_commit :set_expire_at
 
   def minify
     Rails.application.routes.url_helpers.mini_url(checksum: self.checksum)
@@ -20,4 +21,7 @@ class Url < ActiveRecord::Base
     self.checksum = rand(36**8).to_s(36)
   end
 
+  def set_expire_at
+    update_column(:expire_at, 1.month.from_now)
+  end
 end
