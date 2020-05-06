@@ -8,6 +8,15 @@ class UrlsController < ApplicationController
     @url.save
   end
 
+  def show
+    @url = Url.find_by_checksum(params[:checksum]) 
+    if @url.nil?
+      render 'public/404'
+    else
+      redirect_to @url.original
+    end
+  end
+
   private
 
   def url_params
