@@ -1,0 +1,7 @@
+.row
+  = form_for(@url, remote: true) do |f|
+    = f.text_field :original
+    = f.submit 'Minify', class: 'button-md'
+
+.row
+  #minified_url.bold
