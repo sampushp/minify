@@ -5,10 +5,6 @@ class Url < ActiveRecord::Base
   before_create :generate_minified
   after_commit :set_expire_at
 
-  def minify
-    Rails.application.routes.url_helpers.mini_url(checksum: self.checksum)
-  end
-
   private
   def sanitize_original
     return false if self.original.blank?

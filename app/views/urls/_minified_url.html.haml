@@ -1,5 +1,5 @@
 - if @url.checksum?
   %p Here is your minified url
-  = @url.minify
+  = mini_url(checksum: @url.checksum)
 - else
   %p Minified Url can not be generated
